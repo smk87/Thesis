@@ -1,0 +1,10 @@
+{
+    "require": {
+    "omnipay/omnipay": "~2.0"
+},
+    "autoload": {
+    "psr-4": {
+        "Payment\\" : "payment"
+    }
+}
+}
