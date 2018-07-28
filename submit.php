@@ -15,6 +15,7 @@ if(!empty($_POST['stripeToken'])){
     $billtype = $_POST['billtype'];
     $billamt = $_POST['billamt'];
     $bill_id = $_POST['bill_id'];
+    $billinfo=$_POST['billinfo'];
     
     
     //include Stripe PHP library
@@ -36,7 +37,7 @@ if(!empty($_POST['stripeToken'])){
     
     //item information
     $itemName = $billtype;
-    $itemNumber = "PS123456";
+    $itemNumber = $billinfo;
     $itemPrice = $billamt;
     $currency = "usd";
     $orderID = "SKA92712382139";

@@ -251,6 +251,14 @@ input[type=submit]:hover {
     </div>
     <div class="row">
       <div class="col-25">
+        <label for="lname">Bill Info</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="billinfo" placeholder="Enter Level-Term/Month">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
         <label for="lname">Bill Amount</label>
       </div>
       <div class="col-75">

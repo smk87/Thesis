@@ -255,7 +255,7 @@ input[type=submit]:hover {
 
         //Printing values
         $tid=$_SESSION['username'];
-        $q="SELECT bill_stdid,bill_type,bill_amt,bill_duedate,bill_id FROM bill WHERE bill_stdid='$tid' AND bill_type='Hall Bill' AND bill_sts='Not Paid'";
+        $q="SELECT bill_stdid,bill_type,bill_info,bill_amt,bill_duedate,bill_id FROM bill WHERE bill_stdid='$tid' AND bill_type='Hall Bill' AND bill_sts='Not Paid'";
         $r=mysqli_query($mysqli,$q);
         while($row=mysqli_fetch_array($r)){
 
@@ -277,6 +277,14 @@ input[type=submit]:hover {
         </div>
         <div class="col-75">
           <input type="text" id="lname" name="billtype" value="<?php echo $row['bill_type']; ?>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="lname">Bill Info</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="lname" name="billinfo" value="<?php echo $row['bill_info']; ?>">
         </div>
       </div>
       <div class="row">

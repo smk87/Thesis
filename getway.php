@@ -60,6 +60,7 @@ $(document).ready(function() {
 $billtype= $_POST['billtype'];
 $billamt=$_POST['billamt'];
 $bill_id=$_POST['bill_id'];
+$billinfo=$_POST['billinfo'];
 
 
 ?>
@@ -103,6 +104,7 @@ $bill_id=$_POST['bill_id'];
         <input type="hidden" name="billtype" value="<?php echo $billtype ?>">
         <input type="hidden" name="billamt" value="<?php echo $billamt ?>">
         <input type="hidden" name="bill_id" value="<?php echo $bill_id ?>">
+        <input type="hidden" name="billinfo" value="<?php echo $billinfo ?>">
         
 
     <div class="pure-controls">       
