@@ -29,4 +29,4 @@ header( "refresh:5;url=usf.php" );
 // Close connection
 $mysqli->close();
 ?>
-<h1>This page will be redirected in 5 seconds...</h1>;
+<h1>This page will be redirected in 5 seconds...</h1>

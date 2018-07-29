@@ -271,7 +271,7 @@ input[type=submit]:hover {
 
         //Printing values
         $tid=$_SESSION['username'];
-        $q="SELECT bill_stdid,bill_type,bill_info,bill_amt,bill_duedate,bill_id FROM bill WHERE bill_stdid='$tid' AND bill_type='Tution' AND bill_sts='Not Paid'";
+        $q="SELECT bill_stdid,bill_type,bill_info,bill_amt,bill_duedate,bill_id FROM bill WHERE bill_stdid='$tid' AND bill_type='Tuition' AND bill_sts='Not Paid'";
         $r=mysqli_query($mysqli,$q);
         while($row=mysqli_fetch_array($r)){
           ?>

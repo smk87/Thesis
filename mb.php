@@ -232,7 +232,7 @@ input[type=submit]:hover {
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item">Tution Fees</li>
+        <li class="breadcrumb-item">Mess Bill</li>
       </ol>
          <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>

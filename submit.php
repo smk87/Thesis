@@ -95,10 +95,51 @@ if(!empty($_POST['stripeToken'])){
 echo $statusMsg;
 
 
+$q="SELECT orders.created,bill_type FROM orders Natural JOIN bill WHERE orders.bill_id='$bill_id' AND orders.created>bill.bill_duedate";
+$r=mysqli_query($db,$q);
+
+while($row=mysqli_fetch_array($r)){
+    
+    if ($row['created']) {
+        
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "th";
+        
+        // Create connection again
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } 
+
+        if($row['bill_type']=='Fine'){
+            $sql = "UPDATE student SET latefine=latefine+1 WHERE std_id='$std_id'";
+            if ($conn->query($sql) === TRUE) {
+                echo "Record updated successfully";
+            } else {
+                echo "Error updating record: " . $conn->error;
+            }
+        }
+        if($row['bill_type']=='Tuition'){
+            $sql = "UPDATE student SET latetuition=latetuition+1 WHERE std_id='$std_id'";
+            if ($conn->query($sql) === TRUE) {
+                echo "Record updated successfully";
+            } else {
+                echo "Error updating record: " . $conn->error;
+            }
+        }
+
+        $conn->close();
+
+    }
+}
+
 
 //Set Refresh header using PHP.
 
-if($billtype=="Tution"){
+if($billtype=="Tuition"){
     header( "refresh:5;url=tf.php" );
 }
 if($billtype=="Fine"){
