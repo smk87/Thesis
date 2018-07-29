@@ -234,19 +234,23 @@ input[type=submit]:hover {
         <div class="container">
 
   <form action="vsi_show.php" method="post">
-    <div class="row">
-      <div class="col-25">
-        <label for="fname">Student ID</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="fname" name="sid" placeholder="Enter ID">
-      </div>
-    </div>
-
-
-    <div class="row">
-      <input type="submit" value="Submit">
-    </div>
+  <div class="row">
+		                <div class="col-md-12">
+		                    <form>
+                              <div class="form-group row">
+                                <label for="username" class="col-2 col-form-label">Student ID</label> 
+                                <div class="col-8">
+                                <input type="text" id="fname" name="sid" required placeholder="Enter ID">                                </div>
+                              </div>
+                              
+                              <div class="form-group row">
+                                <div class="offset-5 col-8">
+                                  <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                              </div>
+                            </form>
+		                </div>
+		            </div>
   </form>
 </div>
 

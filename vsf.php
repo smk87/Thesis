@@ -99,6 +99,9 @@ input[type=submit]:hover {
     }
 }
 </style>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -222,7 +225,7 @@ input[type=submit]:hover {
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item">My Dashboard</li>
+        <li class="breadcrumb-item">View Student Fees</li>
       </ol>
          <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
@@ -233,19 +236,26 @@ input[type=submit]:hover {
       <div class="row">
         <div class="container">
   <form action="vsf_show.php" method="post">
-    <div class="row">
-      <div class="col-25">
-        <label for="fname">Student ID</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="fname" name="sid" placeholder="Enter ID">
-      </div>
-    </div>
-
 
     <div class="row">
-      <input type="submit" value="Submit">
-    </div>
+		                <div class="col-md-12">
+		                    <form>
+                              <div class="form-group row">
+                                <label for="username" class="col-2 col-form-label">Student ID</label> 
+                                <div class="col-8">
+                                <input type="text" id="fname" name="sid" required placeholder="Enter ID">                                </div>
+                              </div>
+                              
+                              <div class="form-group row">
+                                <div class="offset-5 col-8">
+                                  <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                              </div>
+                            </form>
+		                </div>
+		            </div>
+
+
   </form>
 </div>
 

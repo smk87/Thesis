@@ -98,6 +98,7 @@ input[type=submit]:hover {
         margin-top: 0;
     }
 }
+
 </style>
 </head>
 <body>
@@ -222,7 +223,7 @@ input[type=submit]:hover {
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item">My Dashboard</li>
+        <li class="breadcrumb-item">View Student Fees</li>
       </ol>
          <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
@@ -231,8 +232,22 @@ input[type=submit]:hover {
     <?php endif ?>
       <!-- Icon Cards-->
 
-          <?php
-          /* Attempt MySQL server connection. Assuming you are running MySQL
+               <div class="row">
+        <div class="container">
+
+  <div class="container">
+	<div class="row">
+		<div class="col-md-1 ">
+		     
+		</div>
+		<div class="col-md-9">
+		    <div class="card">
+		        <div class="card-body">
+		            
+		            <div class="row">
+		                <div class="col-md-12">
+                        <?php 
+                             /* Attempt MySQL server connection. Assuming you are running MySQL
           server with default setting (user 'root' with no password) */
           $mysqli = new mysqli("localhost", "root", "", "th");
 
@@ -247,57 +262,72 @@ input[type=submit]:hover {
 
           //Printing values
           $tid=$_SESSION['username'];
-          $q="SELECT bill_stdid,bill_type,bill_amt,bill_duedate FROM bill WHERE bill_stdid='$id'";
+          $q="SELECT * FROM bill WHERE bill_stdid='$id'";
           $r=mysqli_query($mysqli,$q);
           while($row=mysqli_fetch_array($r)){
+                        ?>
+                    <div class="row">
+		                
+		            </div>
 
-            ?>
-            <div class="container">
-      <form>
-        <div class="row">
-          <div class="col-25">
-            <label for="fname">Student ID</label>
-          </div>
-          <div class="col-75">
-            <input type="text" id="fname" name="id" value="<?php echo $row['bill_stdid']; ?>">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="lname">Bill Type</label>
-          </div>
-          <div class="col-75">
-            <input type="text" id="lname" name="billtype" value="<?php echo $row['bill_type']; ?>">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="lname">Bill Amount</label>
-          </div>
-          <div class="col-75">
-            <input type="text" id="lname" name="billamt" value="<?php echo $row['bill_amt']; ?>">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="lname">Due Date</label>
-          </div>
-          <div class="col-75">
-            <input type="date" id="lname" name="duedate" value="<?php echo $row['bill_duedate']; ?>">
-          </div>
-        </div>
-        
-      </form>
-            <?php
+		                    <form>
+                              <div class="form-group row">
+                                <label for="username" class="col-4 col-form-label">Student ID</label> 
+                                <div class="col-8">
+                                  <input id="username" name="username"  value="<?php echo $row['bill_stdid']; ?>" class="form-control here" style="font-weight: bold;" disabled="disabled" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="name" class="col-4 col-form-label">Bill Type</label> 
+                                <div class="col-8">
+                                  <input id="name" name="name" value="<?php echo $row['bill_type']; ?>" class="form-control here" style="font-weight: bold;" disabled="disabled" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="text" class="col-4 col-form-label">Bill Info</label> 
+                                <div class="col-8">
+                                  <input id="text" name="dep" value="<?php echo $row['bill_info']; ?>" class="form-control here" style="font-weight: bold;" disabled="disabled" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="text" class="col-4 col-form-label">Bill Amount</label> 
+                                <div class="col-8">
+                                  <input id="text" name="lvl" value="<?php echo $row['bill_amt']; ?>" class="form-control here" style="font-weight: bold;" disabled="disabled" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="text" class="col-4 col-form-label">Bill Status</label> 
+                                <div class="col-8">
+                                  <input id="text" name="term" value="<?php echo $row['bill_sts']; ?>" class="form-control here" style="font-weight: bold;" disabled="disabled" type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="email" class="col-4 col-form-label">Bill Due Date</label> 
+                                <div class="col-8">
+                                  <input id="email" name="email" value="<?php echo $row['bill_duedate']; ?>" class="form-control here" style="font-weight: bold;" disabled="disabled" type="text">
+                                </div>
+                              </div>
+
+                            </form>
+                            <br />
+                            <br />
+                            
+
+                             <?php
           }
 
           // Close connection
           $mysqli->close();
           ?>
-
-
-
+		                </div>
+		            </div>
+		            
+		        </div>
+		    </div>
+		</div>
+	</div
       </div>
+      
         <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

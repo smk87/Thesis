@@ -98,9 +98,8 @@ input[type=submit]:hover {
 }
 </style>
 </head>
+
 <body>
-
-
 <!--<div class="navbar">
   <a href="index.php">Home</a>
   <div class="dropdown">
@@ -233,7 +232,7 @@ input[type=submit]:hover {
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item">Hall Bill</li>
+        <li class="breadcrumb-item">Tution Fees</li>
       </ol>
          <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
@@ -243,8 +242,25 @@ input[type=submit]:hover {
       <!-- Contents-->
 
       <div class="row">
-        <?php
-        /* Attempt MySQL server connection. Assuming you are running MySQL
+        
+          <div class="container">
+
+         <div class="row">
+        <div class="container">
+
+  <div class="container">
+	<div class="row">
+		<div class="col-md-1 ">
+		     
+		</div>
+		<div class="col-md-9">
+		    <div class="card">
+		        <div class="card-body">
+		            
+		            <div class="row">
+		                <div class="col-md-12">
+                        <?php 
+                             /* Attempt MySQL server connection. Assuming you are running MySQL
         server with default setting (user 'root' with no password) */
         $mysqli = new mysqli("localhost", "root", "", "th");
 
@@ -258,67 +274,70 @@ input[type=submit]:hover {
         $q="SELECT bill_stdid,bill_type,bill_info,bill_amt,bill_duedate,bill_id FROM bill WHERE bill_stdid='$tid' AND bill_type='Hall Bill' AND bill_sts='Not Paid'";
         $r=mysqli_query($mysqli,$q);
         while($row=mysqli_fetch_array($r)){
-
           ?>
 
-          <div class="container">
-    <form action="getway.php" method="post">
-      <div class="row">
-        <div class="col-25">
-          <label for="fname">Student ID</label>
-        </div>
-        <div class="col-75">
-          <input type="text" id="fname" name="id" value="<?php echo $row['bill_stdid']; ?>">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="lname">Bill Type</label>
-        </div>
-        <div class="col-75">
-          <input type="text" id="lname" name="billtype" value="<?php echo $row['bill_type']; ?>">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="lname">Bill Info</label>
-        </div>
-        <div class="col-75">
-          <input type="text" id="lname" name="billinfo" value="<?php echo $row['bill_info']; ?>">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="lname">Bill Amount</label>
-        </div>
-        <div class="col-75">
-          <input type="text" id="lname" name="billamt" value="<?php echo $row['bill_amt']; ?>">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-25">
-          <label for="lname">Due Date</label>
-        </div>
-        <div class="col-75">
-          <input type="date" id="lname" name="duedate" value="<?php echo $row['bill_duedate']; ?>">
-        </div>
-      </div>
+                    <div class="row">
+		                
+		            </div>
 
-       <input type="hidden" name="bill_id" value="<?php echo $row['bill_id']; ?>">
+		                    <form action="getway.php" method="POST">
+                              <div class="form-group row">
+                                <label for="username" class="col-4 col-form-label">Student ID</label> 
+                                <div class="col-8">
+                                  <input id="username" name="bill_stdid"  value="<?php echo $row['bill_stdid']; ?>" class="form-control here" style="font-weight: bold;"  type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="name" class="col-4 col-form-label">Bill Type</label> 
+                                <div class="col-8">
+                                  <input id="name" name="billtype" value="<?php echo $row['bill_type']; ?>" class="form-control here" style="font-weight: bold;"  type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="text" class="col-4 col-form-label">Bill Info</label> 
+                                <div class="col-8">
+                                  <input id="text" name="billinfo" value="<?php echo $row['bill_info']; ?>" class="form-control here" style="font-weight: bold;"  type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="text" class="col-4 col-form-label">Bill Amount</label> 
+                                <div class="col-8">
+                                  <input id="text" name="billamt" value="<?php echo $row['bill_amt']; ?>" class="form-control here" style="font-weight: bold;"  type="text">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="email" class="col-4 col-form-label">Bill Due Date</label> 
+                                <div class="col-8">
+                                  <input id="email" name="bill_duedate" value="<?php echo $row['bill_duedate']; ?>" class="form-control here" style="font-weight: bold;"  type="text">
+                                </div>
+                              </div>
 
-      <div class="row">
-        <input type="submit" value="Pay Now">
-      </div>
+                              <input type="hidden" name="bill_id" value="<?php echo $row['bill_id']; ?>">
 
-    </form>
-          <?php
-        }
+                              <div class="form-group row">
+                                <div class="offset-5 col-8">
+                                  <button name="submit" type="submit" class="btn btn-primary">Pay Now</button>
+                                </div>
+                              </div>
 
-        // Close connection
-        $mysqli->close();
-        ?>
+                            </form>
+                            <br />
+                            <br />
+                            
 
+                             <?php
+          }
 
+          // Close connection
+          $mysqli->close();
+          ?>
+		                </div>
+		            </div>
+		            
+		        </div>
+		    </div>
+		</div>
+	</div
 
       </div>
         <!-- Bootstrap core JavaScript-->

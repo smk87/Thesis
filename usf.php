@@ -222,7 +222,7 @@ input[type=submit]:hover {
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item">My Dashboard</li>
+        <li class="breadcrumb-item">Add Student Fees</li>
       </ol>
          <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
@@ -232,53 +232,47 @@ input[type=submit]:hover {
       <!-- Icon Cards-->
       <div class="row">
         <div class="container">
-  <form action="usf_insert.php" method="post">
-    <div class="row">
-      <div class="col-25">
-        <label for="fname">Student ID</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="fname" name="id" placeholder="Enter ID">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="lname">Bill Type</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="lname" name="billtype" placeholder="Enter Bill Type">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="lname">Bill Info</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="lname" name="billinfo" placeholder="Enter Level-Term/Month">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="lname">Bill Amount</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="lname" name="billamt" placeholder="Enter Bill Amount">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-25">
-        <label for="lname">Due Date</label>
-      </div>
-      <div class="col-75">
-        <input type="date" id="lname" name="duedate" placeholder="Enter Due Date">
-      </div>
-    </div>
 
+  <div class="col-md-12">
+		                    <form  action="usf_insert.php" method="post">
+                              <div class="form-group row">
+                                <label for="username" class="col-2 col-form-label">Student ID</label> 
+                                <div class="col-8">
+                                <input type="text" id="fname" name="id" required placeholder="Enter ID">                                </div>
+                              </div>
 
-    <div class="row">
-      <input type="submit" value="Submit">
-    </div>
-  </form>
+                              <div class="form-group row">
+                                <label for="username" class="col-2 col-form-label">Bill Type</label> 
+                                <div class="col-8">
+                                <input type="text" id="fname" name="billtype" required placeholder="Enter Bill Type">                                </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <label for="username" class="col-2 col-form-label">Bill Info</label> 
+                                <div class="col-8">
+                                <input type="text" id="fname" name="billinfo" required placeholder="Enter Level-Term/Month">                                </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <label for="username" class="col-2 col-form-label">Bill Amount</label> 
+                                <div class="col-8">
+                                <input type="text" id="fname" name="billamt" required placeholder="Enter Bill Amount">                                </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <label for="username" class="col-2 col-form-label">Due Date</label> 
+                                <div class="col-8">
+                                <input type="date" id="fname" name="duedate" required placeholder="Enter Due Date">                                </div>
+                              </div>
+                              
+                              <div class="form-group row">
+                                <div class="offset-5 col-8">
+                                  <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                              </div>
+                            </form>
+		                </div>
+		            </div>
 </div>
 
       </div>
