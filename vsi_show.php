@@ -266,8 +266,9 @@ input[type=submit]:hover {
 
 
           //Printing values
+          $t1=5;
           $tid=$_SESSION['username'];
-          $q="SELECT std_name,std_id,std_dep,std_email,lvl,term FROM student WHERE std_id='$id'";
+          $q="SELECT std_name,std_id,std_dep,std_email,lvl,term,latetuition,latefine,latehall,latemess FROM student WHERE std_id='$id'";
           $r=mysqli_query($mysqli,$q);
           while($row=mysqli_fetch_array($r)){
                         ?>
@@ -282,7 +283,7 @@ input[type=submit]:hover {
                               <div class="form-group row">
                                 <label for="username" class="col-4 col-form-label">Student ID</label> 
                                 <div class="col-8">
-                                  <input id="username" name="username"  value="<?php echo $row['std_id']; ?>" class="form-control here" style="font-weight: bold;" disabled="disabled" type="text">
+                                  <input id="username" name="username"  value="<?php echo $row['std_id']; ?>"  class="form-control here" style="font-weight: bold;" disabled="disabled" type="text">
                                 </div>
                               </div>
                               <div class="form-group row">
@@ -319,21 +320,68 @@ input[type=submit]:hover {
                             </form>
 
                              <?php
+            
+            $dataPoints = array(
+              array("label"=> "Late Tuition Fees", "y"=> $row['latetuition']),
+              array("label"=> "Late Fines", "y"=> $row['latefine']),
+              array("label"=> "Late Hall Bills", "y"=> $row['latehall']),
+              array("label"=> "Late Mess Bills", "y"=> $row['latemess'])
+            );
           }
 
           // Close connection
           $mysqli->close();
+          //include 'chartcheck.php';
           ?>
+          
+          <!DOCTYPE HTML FOR Chart>
+          <html>
+          <head>  
+          <script>
+          window.onload = function () {
+           
+          var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            exportEnabled: true,
+            title:{
+              text: "Numbers of Late Payments of This Student"
+            },
+            subtitles: [{
+              text: ""
+            }],
+            data: [{
+              type: "pie",
+              showInLegend: "true",
+              legendText: "{label}",
+              indexLabelFontSize: 16,
+              indexLabel: "{label} - #percent%",
+              yValueFormatString: "#,##0",
+              dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+            }]
+          });
+          chart.render();
+           
+          }
+          </script>
+          </head>
+          <body>
+          <br>
+          <br>
+          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+          <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+          </body>
+          </html>     
+
 		                </div>
 		            </div>
 		            
 		        </div>
 		    </div>
 		</div>
+    
 	</div>
 </div>
 </div>
-
 
       </div>
         <!-- Bootstrap core JavaScript-->
@@ -367,7 +415,6 @@ input[type=submit]:hover {
       	</h3>
       </div>
   	<?php endif ?>
-
 
 
 </div>
